@@ -127,7 +127,11 @@ def card(c, prefix=""):
         </a>'''
 
 
+SITEMAP = []  # 作ったページのURL(sitemap.xml に載せる)
+
+
 def head(title, desc, url, prefix="", current=""):
+    SITEMAP.append(url)
     return f'''<!doctype html>
 <html lang="ja">
 <head>
@@ -142,6 +146,8 @@ def head(title, desc, url, prefix="", current=""):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{e(url)}">
 <meta property="og:site_name" content="カップ酒図鑑 by 一献">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
@@ -485,4 +491,10 @@ build_index()
 build_kura()
 for c in cups:
     build_cup(c)
+# 検索エンジン向けのページ一覧
+(ROOT / "sitemap.xml").write_text(
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + "".join(f"  <url><loc>{u}</loc></url>\n" for u in SITEMAP)
+    + "</urlset>\n", encoding="utf-8")
 print(f"{len(cups)}本のカップ酒のページを作りました(宮城 {len(miyagi)}本)")
