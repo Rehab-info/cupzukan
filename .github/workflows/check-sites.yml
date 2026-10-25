@@ -1,0 +1,27 @@
+# data/sites.json が一献・蔵旅・カップ酒図鑑の3つのリポジトリで同じかを確かめる。
+# サイトの公開(pages.yml)とは別の仕組みなので、ここが失敗しても公開は止まらない。
+name: Check sites.json
+
+on:
+  pull_request:
+    paths: ["data/sites.json", "tools/check_sites.py", ".github/workflows/check-sites.yml"]
+  push:
+    branches: [main]
+    paths: ["data/sites.json", "tools/check_sites.py", ".github/workflows/check-sites.yml"]
+  schedule:
+    - cron: "17 0 * * 1"   # 毎週月曜 9:17(日本時間)。ほかのリポジトリだけが変わったときに気づくため
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare data/sites.json with the other repositories
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 tools/check_sites.py
