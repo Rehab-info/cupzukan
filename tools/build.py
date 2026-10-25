@@ -9,6 +9,7 @@ assets/ の CSS・JS を直したら、下の VERSION を1つ上げてくださ�
 import html
 import json
 import sys
+from urllib.parse import urlencode
 from pathlib import Path
 
 VERSION = "9"
@@ -21,6 +22,14 @@ SITE = URL["cupzukan"]
 IKKON = URL["ikkon"]
 KURATABI = URL["kuratabi"]
 SAKAZUKI = URL["sakazuki"]
+
+
+def sakazuki_add(c):
+    """さかづき帳の新規記録を、このカップの銘柄情報を入れた下書きで開くURL(保存は向こうで「記録する」を押したとき)。
+    種類は保存値の「ワンカップ」(画面では「カップ酒」と表示される)。"""
+    q = {"from": "cupzukan", "name": c["name"], "brewery": c["brewery"], "pref": c["pref"], "grade": c["spec"], "type": "ワンカップ"}
+    q.update({k: c[f] for k, f in [("polish", "polish"), ("abv", "alc")] if c.get(f)})
+    return SAKAZUKI + "#add?" + urlencode(q)
 COLUMN = IKKON + "column/cup.html"
 TRIP_BY_NAME = {name: kid for kid, name in SITES["kuratabiTrips"].items()}  # 蔵旅に旅のしおりがある蔵
 data = json.loads((ROOT / "data/cups.json").read_text(encoding="utf-8"))
@@ -376,7 +385,7 @@ def build_cup(c):
         <section><h2>どこで買える</h2><p>{e(c["buyNote"])}</p><p class="cz-fine">{e(c["seen"]) + "にも販売を確かめました。" if c.get("status") == "now" else e(c["seen"]) + "に販売を確かめた情報です。いまは中身やデザインが変わったり、販売を終えたりしているかもしれません。"}</p></section>
         {f'<section><h2>くわしく</h2><dl class="cz-keyfacts" style="margin:0;grid-template-columns:repeat({len(extra)},minmax(0,1fr))">{"".join(f"<div><dt>{k}</dt><dd>{e(v)}</dd></div>" for k, v in extra)}</dl></section>' if extra else ""}
         {f'<section><h2>蔵をたずねる</h2><p>{e(c["brewery"])}をたずねる旅のしおりがあります。</p><a class="cz-record cz-visit" href="{e(KURATABI)}{e(TRIP_BY_NAME[c["brewery"]])}.html">蔵旅で旅程を見る</a></section>' if c["brewery"] in TRIP_BY_NAME else ""}
-        <section><h2>飲んだら</h2><p>さかづき帳に記録して、一合の地図を広げましょう。</p><a class="cz-record" href="{SAKAZUKI}">さかづき帳をひらく</a></section>
+        <section><h2>飲んだら</h2><p>さかづき帳に記録して、一合の地図を広げましょう。</p><a class="cz-record" href="{e(sakazuki_add(c))}">さかづき帳に記録する</a></section>
         <section><h2>情報のもと</h2><ul class="cz-src">{sources}</ul>
           <p class="cz-fine">味わいは記事や販売店の紹介をもとにした目安です。{e(c.get("trademark", ""))}</p></section>
       </aside>
