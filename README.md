@@ -9,6 +9,7 @@
 ```
 index.html          トップ(宮城の一合・全国のカップ酒・楽しみ方)  ← tools/build.py が作る
 cup/<id>.html       1本ごとのページ                              ← tools/build.py が作る
+sitemap.xml         検索エンジン向けのページ一覧                  ← tools/build.py が作る
 data/cups.json      カップ酒のデータ(ここを編集して追加)
 tools/build.py      データからページを作り直すスクリプト
 assets/style.css    デザイン(一献・蔵旅と同じ配色)
