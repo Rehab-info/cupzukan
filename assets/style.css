@@ -322,6 +322,7 @@ body::after {
 .cz-fine { font-size: 12px; color: var(--muted); }
 .cz-record { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 999px; background: var(--ai); color: var(--on-ai); text-decoration: none; font-weight: 700; font-size: 14.5px; }
 .cz-record:hover { filter: brightness(1.08); }
+.cz-record.cz-visit { background: transparent; color: var(--ai); border: 1px solid var(--ai); }
 
 /* 宮城のエリアごとのまとまり */
 .cz-groups { display: grid; gap: 26px; }
@@ -364,3 +365,14 @@ body::after {
 .kz-howto ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: 14.5px; }
 .kz-howto p { margin: 0; }
 @media (max-width: 520px) { .kz-tally div { padding: 8px 8px; } .kz-tally dt { font-size: 11px; letter-spacing: 0; white-space: nowrap; } .kz-tally dd { font-size: 26px; } }
+
+/* ---------- 一献のなかま(フッター) ---------- */
+.family { display: grid; gap: 8px; margin-top: 12px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.family-h { font-size: 12px; letter-spacing: .12em; }
+.family a { display: flex; flex-direction: column; justify-content: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.family a b { font-size: 14px; }
+.family a small { font-size: 12px; color: var(--muted); }
+@media (min-width: 721px) {
+  .family { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .family-h { grid-column: 1 / -1; }
+}
