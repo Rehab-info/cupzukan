@@ -1,0 +1,45 @@
+{
+  "checked": "2026年10月",
+  "basis": "宮城県酒造組合「宮城の蔵元一覧」の24蔵",
+  "basisUrl": "https://miyagisake.jp/kuramoto/",
+  "kura": [
+    {"name": "仙台伊澤家 勝山酒造", "brewery": "勝山酒造", "city": "仙台市泉区", "area": "仙台・県央", "brands": "勝山・戦勝政宗", "status": "none", "note": "180mlは化粧箱入りの瓶。カップは見つかりませんでした。"},
+    {"name": "内ヶ崎酒造店", "brewery": "内ヶ崎酒造店", "city": "富谷市", "area": "仙台・県央", "brands": "鳳陽", "status": "past", "note": "普通酒・本醸造・純米の3種のカップがありました。"},
+    {"name": "大和蔵酒造", "brewery": "大和蔵酒造", "city": "黒川郡大和町", "area": "仙台・県央", "brands": "雪の松島・大和蔵", "status": "none", "note": "180mlは一合瓶。カップは見つかりませんでした。"},
+    {"name": "佐々木酒造店", "brewery": "佐々木酒造店", "city": "名取市閖上", "area": "県南", "brands": "宝船浪の音", "status": "none", "note": "商品は300ml・720ml・1800mlの瓶のみです。"},
+    {"name": "大沼酒造店", "brewery": "大沼酒造店", "city": "柴田郡村田町", "area": "県南", "brands": "乾坤一", "status": "past", "note": "手造り純米(文字の色違い4種)と、春の華やか純米のカップがありました。"},
+    {"name": "蔵王酒造", "brewery": "蔵王酒造", "city": "白石市", "area": "県南", "brands": "蔵王", "status": "past", "note": "本醸造のカップがありました。いまの180ml純米は一合瓶です。"},
+    {"name": "佐浦", "brewery": "佐浦", "city": "塩竈市", "area": "塩竈", "brands": "浦霞", "status": "none", "note": "180mlは「生一本」などの一合瓶。カップは見つかりませんでした。"},
+    {"name": "阿部勘酒造", "brewery": "阿部勘酒造", "city": "塩竈市", "area": "塩竈", "brands": "阿部勘・於茂多加男山・四季の松島", "status": "none", "note": "300mlの瓶はありますが、カップは見つかりませんでした。"},
+    {"name": "一ノ蔵", "brewery": "一ノ蔵", "city": "大崎市松山", "area": "大崎・加美・遠田", "brands": "一ノ蔵・すず音", "status": "none", "note": "180mlは化粧箱入りや飲み比べセットの瓶。カップは見つかりませんでした。"},
+    {"name": "新澤醸造店", "brewery": "新澤醸造店", "city": "大崎市三本木", "area": "大崎・加美・遠田", "brands": "伯楽星・愛宕の松", "status": "now", "note": "県内でいちばん多くのカップを出す蔵。むすび丸・チョコえもんなど、宮城のご当地キャラクターのカップがいまも買えます。"},
+    {"name": "森民酒造店", "brewery": "森民酒造店", "city": "大崎市岩出山", "area": "大崎・加美・遠田", "brands": "森泉", "status": "none", "note": "カップは見つかりませんでした。"},
+    {"name": "寒梅酒造", "brewery": "寒梅酒造", "city": "大崎市古川", "area": "大崎・加美・遠田", "brands": "宮寒梅・鶯咲", "status": "none", "note": "カップは見つかりませんでした。"},
+    {"name": "田中酒造店", "brewery": "田中酒造店", "city": "加美郡加美町", "area": "大崎・加美・遠田", "brands": "真鶴・田林", "status": "now", "note": "特別純米のカップが、いまも地酒専門店の通販で取り寄せできます。以前は金紋・銀紋のカップもありました。"},
+    {"name": "山和酒造店", "brewery": "山和酒造店", "city": "加美郡加美町", "area": "大崎・加美・遠田", "brands": "わしが國・山和", "status": "past", "note": "普段飲みの「わしが國」のカップがありました。"},
+    {"name": "中勇酒造店", "brewery": "中勇酒造店", "city": "加美郡加美町", "area": "大崎・加美・遠田", "brands": "天上夢幻・鳴瀬川", "status": "past", "note": "鳴瀬川 特別純米のカップがありました。天上夢幻の180mlは一合瓶です。"},
+    {"name": "川敬商店", "brewery": "川敬商店", "city": "遠田郡美里町", "area": "大崎・加美・遠田", "brands": "黄金澤・橘屋", "status": "none", "note": "カップは見つかりませんでした。"},
+    {"name": "千田酒造", "brewery": "千田酒造", "city": "栗原市栗駒", "area": "栗原・登米", "brands": "栗駒山・奥鶴", "status": "none", "note": "カップは見つかりませんでした。"},
+    {"name": "金の井酒造", "brewery": "金の井酒造", "city": "栗原市一迫", "area": "栗原・登米", "brands": "綿屋", "status": "none", "note": "2026年に180mlの純米大吟醸「千日酒」が出ましたが、カップかどうかは確かめられませんでした。"},
+    {"name": "萩野酒造", "brewery": "萩野酒造", "city": "栗原市金成", "area": "栗原・登米", "brands": "萩の鶴・日輪田", "status": "none", "note": "180mlは一合瓶。カップは見つかりませんでした。"},
+    {"name": "石越醸造", "brewery": "石越醸造", "city": "登米市石越町", "area": "栗原・登米", "brands": "澤乃泉", "status": "past", "note": "特別純米と、伊豆沼の白鳥の名を冠した上撰のカップがありました。"},
+    {"name": "平孝酒造", "brewery": "平孝酒造", "city": "石巻市", "area": "石巻・気仙沼", "brands": "日高見", "status": "past", "note": "日高見 純米のカップがありました。"},
+    {"name": "墨廼江酒造", "brewery": "墨廼江酒造", "city": "石巻市", "area": "石巻・気仙沼", "brands": "墨廼江・谷風", "status": "past", "note": "特別純米の「くじらカップ」がありました。"},
+    {"name": "角星", "brewery": "角星", "city": "気仙沼市", "area": "石巻・気仙沼", "brands": "両國・水鳥記", "status": "past", "note": "気仙沼のキャラクター「ホヤぼーや」のカップと、文字だけのカップがありました。気仙沼駅の売店で買えた記録があります。"},
+    {"name": "男山本店", "brewery": "男山本店", "city": "気仙沼市", "area": "石巻・気仙沼", "brands": "蒼天伝・伏見男山", "status": "past", "note": "普段飲みの陸前男山と、南三陸の復興記念カップ「きりこ」がありました。"}
+  ],
+  "others": [
+    {"name": "麹屋酒造店", "brewery": "麹屋酒造店", "city": "塩竈市", "note": "しおがま 本醸造のカップがありました。"},
+    {"name": "相傳商店", "brewery": "相傳商店", "city": "岩沼市", "note": "因幡の白うさぎを描いた名取駒のカップがありました。"},
+    {"name": "宮城ふるさと酒造", "brewery": "宮城ふるさと酒造", "city": "大崎市", "note": "おみやげ向きの「上撰 宮城」のカップがありました。"}
+  ],
+  "sources": [
+    {"title": "宮城県酒造組合「宮城の蔵元一覧」", "url": "https://miyagisake.jp/kuramoto/"},
+    {"title": "みんカラ「社長(改)のブログ」宮城県のカップ酒の記録", "url": "https://minkara.carview.co.jp/userid/1595983/blog/bc980989/"},
+    {"title": "むとう屋「飲みきりサイズ」", "url": "https://www.e-mutouya.jp/SHOP/1131304/list.html"},
+    {"title": "浦霞 オンラインショップ", "url": "https://e-urakasumi.com/"},
+    {"title": "宝船浪の音 商品一覧", "url": "https://housen-naminooto.com/products"},
+    {"title": "黄金澤 全商品", "url": "https://www.koganesawa.com/koganesawa.html"},
+    {"title": "金の井酒造", "url": "https://www.kanenoi.co.jp/"}
+  ]
+}
