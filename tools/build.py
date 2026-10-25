@@ -11,14 +11,18 @@ import json
 import sys
 from pathlib import Path
 
-VERSION = "8"
-SITE = "https://rehab-info.github.io/cupzukan/"  # このサイトの住所(リポジトリ名を変えたらここを直す)
-IKKON = "https://rehab-info.github.io/ikkon/"
-KURATABI = "https://rehab-info.github.io/kuratabi/"
-SAKAZUKI = IKKON + "sakazuki/"
-COLUMN = IKKON + "column/cup.html"
+VERSION = "9"
 
 ROOT = Path(__file__).resolve().parent.parent
+# 一献のなかま4サービスの住所(独自ドメインに移すときは data/sites.json を直す)
+SITES = json.loads((ROOT / "data/sites.json").read_text(encoding="utf-8"))
+URL = {k: v["url"] for k, v in SITES["sites"].items()}
+SITE = URL["cupzukan"]
+IKKON = URL["ikkon"]
+KURATABI = URL["kuratabi"]
+SAKAZUKI = URL["sakazuki"]
+COLUMN = IKKON + "column/cup.html"
+TRIP_BY_NAME = {name: kid for kid, name in SITES["kuratabiTrips"].items()}  # 蔵旅に旅のしおりがある蔵
 data = json.loads((ROOT / "data/cups.json").read_text(encoding="utf-8"))
 cups = data["cups"]
 e = html.escape
@@ -163,6 +167,12 @@ def head(title, desc, url, prefix="", current=""):
 '''
 
 
+def family(keys):
+    """フッターに置く「一献のなかま」。keys は data/sites.json の sites のキー。"""
+    links = "".join(f'<a href="{e(URL[k])}" data-site="{k}"><b>{e(SITES["sites"][k]["name"])}</b><small>{e(SITES["sites"][k]["desc"])}</small></a>' for k in keys)
+    return f'<nav class="family" aria-label="一献のなかま"><span class="family-h">一献のなかま</span>{links}</nav>'
+
+
 FOOT = f'''<footer class="site-foot">
   <div class="wrap">
     <span>味わいや甘辛の位置は、公開されている試飲記事や販売店の紹介をもとにした目安です。各カップの「〜に確認」は、その時期に販売を確かめたという意味です。ラベルの絵は実物を写したものではなく、タイプごとの色で描いたイメージです。中身やデザイン、取り扱いは変わることがあります。情報は{e(data["updated"].replace("-", "年", 1))}月にまとめました。</span>
@@ -171,6 +181,8 @@ FOOT = f'''<footer class="site-foot">
   </div>
 </footer>
 '''
+# トップには「一献のなかま」の欄があるので、フッターのなかまはトップ以外のページに出す
+FOOT_FAMILY = FOOT.replace("  </div>\n</footer>", "    " + family(["ikkon", "kuratabi", "sakazuki"]) + "\n  </div>\n</footer>")
 
 
 def chip(group, value, label):
@@ -363,6 +375,7 @@ def build_cup(c):
       <aside class="cz-side">
         <section><h2>どこで買える</h2><p>{e(c["buyNote"])}</p><p class="cz-fine">{e(c["seen"]) + "にも販売を確かめました。" if c.get("status") == "now" else e(c["seen"]) + "に販売を確かめた情報です。いまは中身やデザインが変わったり、販売を終えたりしているかもしれません。"}</p></section>
         {f'<section><h2>くわしく</h2><dl class="cz-keyfacts" style="margin:0;grid-template-columns:repeat({len(extra)},minmax(0,1fr))">{"".join(f"<div><dt>{k}</dt><dd>{e(v)}</dd></div>" for k, v in extra)}</dl></section>' if extra else ""}
+        {f'<section><h2>蔵をたずねる</h2><p>{e(c["brewery"])}をたずねる旅のしおりがあります。</p><a class="cz-record cz-visit" href="{e(KURATABI)}{e(TRIP_BY_NAME[c["brewery"]])}.html">蔵旅で旅程を見る</a></section>' if c["brewery"] in TRIP_BY_NAME else ""}
         <section><h2>飲んだら</h2><p>さかづき帳に記録して、一合の地図を広げましょう。</p><a class="cz-record" href="{SAKAZUKI}">さかづき帳をひらく</a></section>
         <section><h2>情報のもと</h2><ul class="cz-src">{sources}</ul>
           <p class="cz-fine">味わいは記事や販売店の紹介をもとにした目安です。{e(c.get("trademark", ""))}</p></section>
@@ -380,7 +393,7 @@ def build_cup(c):
   </section>
 </main>
 
-{FOOT}</body>
+{FOOT_FAMILY}</body>
 </html>
 '''
     (ROOT / "cup" / f'{c["id"]}.html').write_text(out, encoding="utf-8")
@@ -477,7 +490,7 @@ def build_kura():
   </section>
 </main>
 
-{FOOT}<script src="assets/app.js?v={VERSION}"></script>
+{FOOT_FAMILY}<script src="assets/app.js?v={VERSION}"></script>
 </body>
 </html>
 '''

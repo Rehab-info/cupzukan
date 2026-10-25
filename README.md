@@ -10,6 +10,7 @@
 index.html          トップ(宮城の一合・全国のカップ酒・楽しみ方)  ← tools/build.py が作る
 cup/<id>.html       1本ごとのページ                              ← tools/build.py が作る
 sitemap.xml         検索エンジン向けのページ一覧                  ← tools/build.py が作る
+data/sites.json     一献のなかま4サービスの住所(一献・蔵旅と同じ内容。独自ドメインに移すときはここを直す)
 data/cups.json      カップ酒のデータ(ここを編集して追加)
 tools/build.py      データからページを作り直すスクリプト
 assets/style.css    デザイン(一献・蔵旅と同じ配色)
@@ -25,7 +26,7 @@ images/             写真を置く場所(いまは未使用)
 3. Settings → Pages → Source を「GitHub Actions」にする
 4. 数分後に `https://rehab-info.github.io/cupzukan/` で公開されます
 
-リポジトリ名を変えるときは、`tools/build.py` の `SITE` も直してください。
+サイトの住所(一献・蔵旅・さかづき帳・カップ酒図鑑)は `data/sites.json` だけに書いています。リポジトリ名を変えるときや独自ドメインに移すときは、一献・蔵旅・カップ酒図鑑の3つのリポジトリの `data/sites.json` をそろえて書き換えます。
 
 ## カップ酒を追加する
 

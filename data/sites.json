@@ -1,0 +1,11 @@
+{
+  "_説明": "一献のなかま4サービスの住所と紹介文。ikkon・kuratabi・cupzukan の3つのリポジトリに同じ内容で置いています。独自ドメインに移すときは、3つの data/sites.json の url をそろえて書き換え、それぞれの生成スクリプトを実行します(公開の仕組みでも自動で実行されます)。",
+  "sites": {
+    "ikkon": {"name": "一献", "url": "https://rehab-info.github.io/ikkon/", "desc": "全国の名酒を、味わい・料理・温度から探す"},
+    "kuratabi": {"name": "蔵旅", "url": "https://rehab-info.github.io/kuratabi/", "desc": "宮城の酒蔵をたずねる旅のしおり"},
+    "sakazuki": {"name": "さかづき帳", "url": "https://rehab-info.github.io/ikkon/sakazuki/", "desc": "飲んだ日本酒を記録するアプリ"},
+    "cupzukan": {"name": "カップ酒図鑑", "url": "https://rehab-info.github.io/cupzukan/", "desc": "一合で出会う宮城と全国のカップ酒"}
+  },
+  "_trips": "蔵旅に旅のしおりがある蔵(宮城の蔵のID: 蔵の名前)。しおりを足したら、3つのリポジトリでここにも足します(蔵旅の生成スクリプトが食い違いを知らせます)。",
+  "kuratabiTrips": {"saura": "佐浦", "ichinokura": "一ノ蔵", "zao": "蔵王酒造", "otokoyama": "男山本店", "sasaki": "佐々木酒造店", "onuma": "大沼酒造店"}
+}
